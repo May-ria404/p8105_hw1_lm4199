@@ -51,7 +51,16 @@ problem2_df =
 problem2_df
 ```
 
+Take the mean of each variable
 
+```{r}
+mean(pull(problem2_df, num_var))
+mean(pull(problem2_df, log_var))
+mean(pull(problem2_df, cha_var))
+mean(pull(problem2_df, fac_var))
+```
+
+The mean works for the numeric and logical variables. It does not work for the character and factor variables. R returns `NA` because these variables are not numeric or logical.
 
 
 
