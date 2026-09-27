@@ -13,15 +13,21 @@ library("tidyverse")
 
 ## Problem 1
 
+### Load the dataset
+
 ```{r}
 data("penguins", package = "palmerpenguins")
 ```
+
+### Write a short description
 
 The penguins dataset has information about different penguins, with variables including `r paste(names(penguins), collapse = ", ")`. The three species are `r paste(levels(penguins$species), collapse = ", ")` and the penguins are from `r paste(levels(penguins$island), collapse = ", ")` islands.
 
 The size of this dataset are `r nrow(penguins)` observations and `r ncol(penguins)` variables.
 
 The mean of flipper length is `r round(mean(penguins$flipper_length_mm, na.rm = TRUE), 2)`.
+
+### Make a scatterplot and export this plot
 
 ```{r warning=FALSE}
 plot_df = 
