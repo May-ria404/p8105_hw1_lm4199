@@ -11,3 +11,28 @@ output: github_document
 library("tidyverse")
 ```
 
+## Problem 1
+
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+The penguins dataset has information about different penguins, with variables including `r paste(names(penguins), collapse = ", ")`. The three species are `r paste(levels(penguins$species), collapse = ", ")` and the penguins are from `r paste(levels(penguins$island), collapse = ", ")` islands.
+
+The size of this dataset are `r nrow(penguins)` observations and `r ncol(penguins)` variables.
+
+The mean of flipper length is `r round(mean(penguins$flipper_length_mm, na.rm = TRUE), 2)`.
+
+```{r warning=FALSE}
+plot_df = 
+  tibble( x = penguins$bill_length_mm, 
+          y = penguins$flipper_length_mm )
+
+ggplot( plot_df, 
+        aes( x = x, y = y, color = penguins$species )) + geom_point()
+
+ggsave( filename = "penguins_scatterplot.png" )
+```
+
+
+
