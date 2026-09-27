@@ -34,5 +34,24 @@ ggplot( plot_df,
 ggsave( filename = "penguins_scatterplot.png" )
 ```
 
+## Problem 2
+
+Create a dataframe
+
+```{r}
+set.seed(1)
+
+problem2_df = 
+  tibble( num_var = rnorm(10),
+          log_var = num_var > 0,
+          cha_var = letters[1:10],
+          fac_var = factor( rep(c("A", "B", "C"), length.out = 10 ))
+  )
+
+problem2_df
+```
+
+
+
 
 
